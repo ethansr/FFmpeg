@@ -1478,7 +1478,7 @@ static void do_video_out(AVFormatContext *s,
     if (format_video_sync != VSYNC_PASSTHROUGH && format_video_sync != VSYNC_DROP) {
         double vdelta = sync_ipts - ost->sync_opts + duration;
         // FIXME set to 0.5 after we fix some dts/pts bugs like in avidec.c
-        if (vdelta < -1.1)
+        if (vdelta < -0.5)
             nb_frames = 0;
         else if (format_video_sync == VSYNC_VFR) {
             if (vdelta <= -0.6) {
